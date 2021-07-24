@@ -9,7 +9,7 @@ A dart package to get your geolocation data from your IP
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:ip_geolocation_api/ip_geolocation_api.dart';
+import 'package:ip_geolocation/ip_geolocation.dart';
 
 void main() => runApp(MyApp());
 
