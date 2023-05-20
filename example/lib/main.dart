@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(text),
-              FlatButton(
+              MaterialButton(
                   onPressed: () {
                     if (geolocationData != null) {
                       setState(() {
