@@ -13,10 +13,10 @@ class GeolocationAPI {
         return GeolocationData.fromJson(parsed);
       }
       print("geolocation api ${response.statusCode}");
-      return null;
+      return GeolocationData();
     } catch (e) {
       print(e);
-      return null;
+      return GeolocationData();
     }
   }
 }
