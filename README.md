@@ -1,82 +1,22 @@
-# ip-geolocation
+# geolocation_ip
 
-A dart package to get your geolocation data from your IP
+A Dart package leverages the IP-API.com service to provide geolocation data based on IP addresses. This package allows developers to easily integrate IP-based geolocation into their Dart or Flutter applications. It supports fetching detailed location information such as country, region, city, latitude, longitude, and more, without requiring an API key for non-commercial use.
 
 ## Example
 
-
 ```dart
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:ip_geolocation/ip_geolocation.dart';
 
-void main() => runApp(MyApp());
+...
+Future<void> getLocationInfo() async {
+  String ip = '24.48.0.1';
+  
+  LocationInfo? locationInfo = await GeolocationIP.getInfo(ip, lang: Lang.en);
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
-    );
-  }
+  print(locationInfo?.toJson());
+  
+  info = locationInfo;
+  setState(() {});
 }
-
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  String text = '';
-  GeolocationData geolocationData;
-
-  @override
-  void initState() {
-    super.initState();
-    this.getIp();
-  }
-
-  Future<void> getIp() async {
-    geolocationData = await GeolocationAPI.getData();
-    if (geolocationData != null) {
-      setState(() {
-        text = geolocationData.ip;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(text),
-              FlatButton(
-                  onPressed: () {
-                    if (geolocationData != null) {
-                      setState(() {
-                        text = jsonEncode(geolocationData.toJson());
-                      });
-                    }
-                  },
-                  child: Text("toJSON"))
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+...
 ```
