@@ -2,6 +2,7 @@ name: example
 description: An example for GeolocationIP package
 version: 1.0.0+1
 homepage: https://github.com/elrizwiraswara/geolocation_ip
+publish_to: none
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
